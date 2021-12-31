@@ -12,8 +12,11 @@ con.on('open', () => {
     console.log('... Connection Established With MongoDb...')
 })
 
-const alienRouter = require('./routes/alien')
+app.use(express.json())
+
+const alienRouter = require('./routes/AlienController')
 app.use('/aliens', alienRouter)
+
 
 app.listen(9000, () => {
     console.log('... Server is running ...')
